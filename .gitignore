@@ -1,0 +1,6 @@
+.DS_Store
+.yardoc
+rspec_results.html
+coverage
+doc
+*.gem
