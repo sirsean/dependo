@@ -50,5 +50,13 @@ module Dependo
                 raise NoMethodError, "undefined method '#{key.to_s}' for #{self.to_s}"
             end
         end
+
+        def respond_to?(key, include_private=false)
+            if Dependo::Registry.has_key?(key)
+                true
+            else
+                super(key, include_private)
+            end
+        end
     end
 end

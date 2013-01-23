@@ -98,6 +98,22 @@ describe Dependo::Registry do
             obj = TestInclude.new
             expect { obj.not_provided }.to raise_error(NoMethodError, /undefined method 'not_provided' for #<TestInclude:0x[0-9a-f]+>/)
         end
+
+        it "when a method is defined" do
+            obj = TestInclude.new
+            obj.should respond_to(:my_method)
+        end
+
+        it "when a method is not defined" do
+            obj = TestInclude.new
+            obj.should_not respond_to(:undefined_method)
+        end
+
+        it "when a method is injected" do
+            Dependo::Registry[:thing] = "this thing"
+            obj = TestInclude.new
+            obj.should respond_to(:thing)
+        end
     end
 
     context "extend" do
