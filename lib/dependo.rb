@@ -1,7 +1,7 @@
 # Dependency Injection Framework
 module Dependo
     # The gem version
-    VERSION = "0.1"
+    VERSION = "0.2"
 
     # Where dependencies are specified (or registered), and stored for future use
     class Registry
