@@ -1,7 +1,7 @@
 # Dependency Injection Framework
 module Dependo
     # The gem version
-    VERSION = "0.1"
+    VERSION = "0.2"
 
     # Where dependencies are specified (or registered), and stored for future use
     class Registry
@@ -48,6 +48,14 @@ module Dependo
                 Dependo::Registry[key]
             else
                 raise NoMethodError, "undefined method '#{key.to_s}' for #{self.to_s}"
+            end
+        end
+
+        def respond_to?(key, include_private=false)
+            if Dependo::Registry.has_key?(key)
+                true
+            else
+                super(key, include_private)
             end
         end
     end
