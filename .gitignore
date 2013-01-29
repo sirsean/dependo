@@ -5,3 +5,4 @@ coverage
 doc
 *.gem
 Gemfile.lock
+.rvmrc

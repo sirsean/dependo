@@ -51,6 +51,9 @@ module Dependo
             end
         end
 
+        # @param key [symbol] the name of the method
+        # @param include_private [boolean] (optional)
+        # @return true if the Dependo::Registry has this method, otherwise check the actual object (using super)
         def respond_to?(key, include_private=false)
             if Dependo::Registry.has_key?(key)
                 true
